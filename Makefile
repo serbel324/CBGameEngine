@@ -5,7 +5,7 @@ EXECUTABLE=game
 
 COMMON_INC = .
 
-SFML_PATH=C:/SFML/GCC
+SFML_PATH=src
 
 SFML_INC_PATH=$(SFML_PATH)/include
 SFML_LIB_PATH=$(SFML_PATH)/lib
@@ -21,8 +21,10 @@ OBJS=$(patsubst %.cpp, $(ODIR)/%.o, $(SRCS))
 ODIR=obj
 
 app: $(OBJS)
-	ls $(SFML_LIB_PATH)
-	$(CC) $(OBJS) -o app $(LIB) $(LIBS) 
+	mkdir obj
+	mkdir obj/core
+	mkdir obj/util
+	$(CC) $(OBJS) -o app.exe $(LIB) $(LIBS)
 	
 $(ODIR)/%.o: %.cpp
 	$(CC) $(CFLAGS) $(INC) $< -o $@
