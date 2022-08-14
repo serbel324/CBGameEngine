@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <random>
 #include <cmath>
+#include <ctime>
+#include <climits>
 
 int ExtMath::GetRandomInt(int min, int max)
 {

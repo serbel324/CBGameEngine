@@ -1,6 +1,7 @@
-#include "Vec2.h"
+#include <util/Vec2.h>
+#include <util/ExtMath.h>
+
 #include "Graphics.h"
-#include "ExtMath.h"
 
 #include <iostream>
 #include <string>
@@ -57,7 +58,7 @@ void Graphics::DrawCircle(Vec2<float> pos, float radius)
 
 void Graphics::DrawBrokenLine(std::vector<Vec2<float>> t, Vec2<float> a, float s)
 {
-	for (int i = 1; i < t.size(); i++)
+	for (size_t i = 1; i < t.size(); i++)
 	{
 		DrawLine(t[i - 1] * s + a, t[i] * s + a);
 	}

@@ -1,7 +1,6 @@
 #pragma once
-#include "Vec2.h"
-
-#include <SFML\Window.hpp>
+#include <util/Vec2.h>
+#include <SFML/Window.hpp>
 
 #include <memory>
 

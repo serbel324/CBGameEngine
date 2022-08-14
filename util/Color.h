@@ -4,7 +4,7 @@ class Color
 public:
 	Color(int r, int g, int b, int a = 0);
 	/* r, g, b are set to the same value v */
-	Color(int v = 0);
+	Color(int v = 0);		
 	~Color();
 
 	Color operator+ (const Color& right) const;

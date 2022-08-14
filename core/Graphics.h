@@ -1,7 +1,7 @@
 #pragma once
-#include "Vec2.h"
-#include "Color.h"
-#include "Camera.h"
+#include <util/Vec2.h>
+#include <util/Color.h>
+#include <core/Camera.h>
 
 #include <memory>
 #include <string>

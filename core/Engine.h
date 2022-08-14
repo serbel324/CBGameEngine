@@ -3,12 +3,12 @@
 #include <vector>
 #include <memory>
 
-#include <SFML\Graphics.hpp>
+#include <util/Vec2.h>
+#include <core/Graphics.h>
+#include <core/Controller.h>
+#include <core/Camera.h>
 
-#include "Vec2.h"
-#include "Graphics.h"
-#include "Controller.h"
-#include "Camera.h"
+#include <SFML/Graphics.hpp>
 
 namespace CBGE {
 

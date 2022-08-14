@@ -22,7 +22,7 @@ public:
         {
             throw CastEventError(EventType::EventId, Type);
         }
-        return;
+        return dynamic_cast<EventType*>(this);
     }
 
 private:
