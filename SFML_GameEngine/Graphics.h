@@ -8,6 +8,9 @@
 
 #include <SFML/Graphics.hpp>
 
+namespace CBGE
+{
+
 /* Contains functions for drawing */
 class Graphics
 {
@@ -75,3 +78,5 @@ private:
 	Camera::SPtr Cam;
 	Vec2<int> WindowSize;
 };
+
+}

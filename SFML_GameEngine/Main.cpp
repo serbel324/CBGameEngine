@@ -1,5 +1,5 @@
 #include "Engine.h"
 
 int main() {
-    Engine e;
+    CBGE::Engine e;
 }

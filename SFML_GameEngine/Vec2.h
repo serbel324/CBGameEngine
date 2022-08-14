@@ -21,10 +21,13 @@ struct Vec2
     Vec2(const Vec2& other);
     Vec2(Vec2&& other);
 
-    template <typename T1>
-    Vec2(const Vec2<T1>& other);
-    template <typename T1>
-    Vec2(Vec2<T1>&& other);
+    Vec2& operator=(const Vec2& other) = default;
+    Vec2& operator=(Vec2&& other) = default;
+
+    template <typename T1, typename FloatType1>
+    Vec2(const Vec2<T1, FloatType1>& other);
+    template <typename T1, typename FloatType1>
+    Vec2(Vec2<T1, FloatType1>&& other);
 
     template <typename T1>
     void Set(T1 X, T1 Y);
@@ -36,25 +39,29 @@ struct Vec2
     /* true if this' and other's coordinates differerence is no more than eps */
     bool CompareWithEps(const Vec2& other) const;
 
-    Vec2& operator=(const Vec2& other);
-    Vec2& operator=(Vec2&& other);
+    template <typename T1, typename FloatType1>
+    Vec2& operator=(const Vec2<T1, FloatType1>& other);
+    template <typename T1, typename FloatType1>
+    Vec2& operator=(Vec2<T1, FloatType1>&& other);
 
     ~Vec2() = default;
 
     Vec2 operator-() const;
 
-    Vec2& operator+=(Vec2 r);
-    Vec2& operator-=(Vec2 r);
+    template <typename T1, typename FloatType1>
+    Vec2& operator+=(Vec2<T1, FloatType1> r);
+    template <typename T1, typename FloatType1>
+    Vec2& operator-=(Vec2<T1, FloatType1> r);
 
     template <typename T1>
     Vec2& operator*=(T1 r);
     template <typename T1>
     Vec2& operator/=(T1 r);
 
-    template <typename T1>
-    Vec2 operator+(Vec2<T1> r) const;
-    template <typename T1>
-    Vec2 operator-(Vec2<T1> r) const;
+    template <typename T1, typename FloatType1>
+    Vec2 operator+(Vec2<T1, FloatType1> r) const;
+    template <typename T1, typename FloatType1>
+    Vec2 operator-(Vec2<T1, FloatType1> r) const;
 
     template <typename T1>
     Vec2 operator*(T1 r) const;
@@ -132,14 +139,14 @@ Vec2<T, FloatType>::Vec2(Vec2&& other)
 }
 
 template<typename T, typename FloatType>
-template<typename T1>
-Vec2<T, FloatType>::Vec2(const Vec2<T1>& other)
+template<typename T1, typename FloatType1>
+Vec2<T, FloatType>::Vec2(const Vec2<T1, FloatType1>& other)
     : X(other.X), Y(other.Y)
 {}
 
 template<typename T, typename FloatType>
-template<typename T1>
-Vec2<T, FloatType>::Vec2(Vec2<T1>&& other)
+template<typename T1, typename FloatType1>
+Vec2<T, FloatType>::Vec2(Vec2<T1, FloatType1>&& other)
     : X(other.X), Y(other.Y)
 {
     other.X = 0;
@@ -173,7 +180,8 @@ bool Vec2<T, FloatType>::CompareWithEps(const Vec2& other) const
 }
 
 template<typename T, typename FloatType>
-Vec2<T, FloatType>& Vec2<T, FloatType>::operator=(const Vec2& other)
+template<typename T1, typename FloatType1>
+Vec2<T, FloatType>& Vec2<T, FloatType>::operator=(const Vec2<T1, FloatType1>& other)
 {
     X = other.X;
     Y = other.Y;
@@ -182,7 +190,8 @@ Vec2<T, FloatType>& Vec2<T, FloatType>::operator=(const Vec2& other)
 }
 
 template<typename T, typename FloatType>
-Vec2<T, FloatType>& Vec2<T, FloatType>::operator=(Vec2&& other)
+template<typename T1, typename FloatType1>
+Vec2<T, FloatType>& Vec2<T, FloatType>::operator=(Vec2<T1, FloatType1>&& other)
 {
     X = other.X;
     Y = other.Y;
@@ -199,7 +208,8 @@ Vec2<T, FloatType> Vec2<T, FloatType>::operator-() const
 }
 
 template<typename T, typename FloatType>
-Vec2<T, FloatType>& Vec2<T, FloatType>::operator+=(Vec2 r)
+template<typename T1, typename FloatType1>
+Vec2<T, FloatType>& Vec2<T, FloatType>::operator+=(Vec2<T1, FloatType1> r)
 {
     X += r.X;
     Y += r.Y;
@@ -207,22 +217,23 @@ Vec2<T, FloatType>& Vec2<T, FloatType>::operator+=(Vec2 r)
 }
 
 template<typename T, typename FloatType>
-Vec2<T, FloatType>& Vec2<T, FloatType>::operator-=(Vec2 r)
+template<typename T1, typename FloatType1>
+Vec2<T, FloatType>& Vec2<T, FloatType>::operator-=(Vec2<T1, FloatType1> r)
 {
     return *this += -r;
 }
 
 template<typename T, typename FloatType>
-template<typename T1>
-Vec2<T, FloatType> Vec2<T, FloatType>::operator+(Vec2<T1> r) const
+template<typename T1, typename FloatType1>
+Vec2<T, FloatType> Vec2<T, FloatType>::operator+(Vec2<T1, FloatType1> r) const
 {
     Vec2 v(*this);
     return v += r;
 }
 
 template<typename T, typename FloatType>
-template<typename T1>
-Vec2<T, FloatType> Vec2<T, FloatType>::operator-(Vec2<T1> r) const
+template<typename T1, typename FloatType1>
+Vec2<T, FloatType> Vec2<T, FloatType>::operator-(Vec2<T1, FloatType1> r) const
 {
     Vec2 v(*this);
     return v -= r;

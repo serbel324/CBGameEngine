@@ -7,6 +7,8 @@
 
 #include <SFML/Graphics.hpp>
 
+namespace CBGE {
+
 Graphics::Graphics(std::shared_ptr<sf::RenderWindow> win, Vec2<int> ws)
 {
 	Window = win;
@@ -192,4 +194,6 @@ void Graphics::SetCamera(Camera::SPtr cam)
 void Graphics::SetDefaultCamera()
 {
 	Cam = std::make_shared<Camera>();
+}
+
 }

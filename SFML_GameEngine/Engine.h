@@ -10,8 +10,8 @@
 #include "Controller.h"
 #include "Camera.h"
 
+namespace CBGE {
 
-using GraphicsPtr = std::shared_ptr<Graphics>;
 using RenderWindowPtr = std::shared_ptr<sf::RenderWindow>;
 
 /* Main class, contains renderer, event handlers and main logic */
@@ -64,5 +64,4 @@ private:
 	void Close();
 };
 
-
-
+}

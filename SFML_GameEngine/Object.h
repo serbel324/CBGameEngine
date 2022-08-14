@@ -1,6 +1,9 @@
 #pragma once
 #include <cstdint>
 
+namespace CBGE
+{
+
 class Object
 {
 public:
@@ -14,3 +17,4 @@ private:
     uint64_t Id;
 };
 
+}

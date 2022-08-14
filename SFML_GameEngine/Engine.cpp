@@ -6,6 +6,8 @@
 
 #include <chrono>
 
+namespace CBGE {
+
 Engine::Engine()
 {
 	Config();
@@ -124,4 +126,6 @@ void Engine::MainLoop()
 
 void Engine::Close()
 {
+}
+
 }
