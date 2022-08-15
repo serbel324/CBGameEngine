@@ -5,6 +5,7 @@
 #include <ctime>
 
 #include <chrono>
+#include <windows.h>
 
 namespace CBGE {
 
@@ -91,6 +92,8 @@ void Engine::Events()
 			break;
 		case sf::Event::MouseMoved:
 			Control->MouseMoved(e.mouseMove);
+			break;
+		default:
 			break;
 		}
 	}

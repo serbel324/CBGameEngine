@@ -24,6 +24,8 @@ void Controller::KeyPressed(sf::Event::KeyEvent& e)
     case sf::Keyboard::Space:
         Space = true;
         break;
+    default:
+        break;
     }
 }
 
@@ -45,6 +47,8 @@ void Controller::KeyReleased(sf::Event::KeyEvent& e)
     case sf::Keyboard::Space:
         Space = false;
         break;
+    default:
+        break;
     }
 }
 
@@ -62,6 +66,8 @@ void Controller::MousePressed(sf::Event::MouseButtonEvent& e)
     case sf::Mouse::Right:
         Rmb = true;
         break;
+    default:
+        break;
     }
 }
 
@@ -73,6 +79,8 @@ void Controller::MouseReleased(sf::Event::MouseButtonEvent& e)
         break;
     case sf::Mouse::Right:
         Rmb = false;
+        break;
+    default:
         break;
     }
 }
