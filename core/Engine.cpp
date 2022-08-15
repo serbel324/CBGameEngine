@@ -5,7 +5,6 @@
 #include <ctime>
 
 #include <chrono>
-#include <windows.h>
 
 namespace CBGE {
 
