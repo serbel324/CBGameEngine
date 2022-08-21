@@ -55,6 +55,6 @@ $(ODIR)/%.o: %.cpp
 	$(CC) $(CFLAGS) $(INC) $< -o $@
 
 clean:
-	rm *.exe
+	rm $(EXECUTABLE)
 	rm *.dll
 	find . -type f -name "*.o" -delete
