@@ -10,15 +10,16 @@ SFML_SRC_PATH=src
 SFML_WINDOWS_PATH=/MinGW
 SFML_LINUX_PATH=/GCC
 
-EXECUTABLE=app
+EXECUTABLE_NAME=app
 SFML_BIN_PATH=
 
 SFML_PATH=$(SFML_SRC_PATH)
 ifeq ($(OS),Windows_NT)
 	SFML_PATH=$(SFML_SRC_PATH)$(SFML_WINDOWS_PATH)
-	EXECUTABLE+=.exe
+	EXECUTABLE=$(EXECUTABLE_NAME).exe
 	SFML_BIN_PATH=$(SFML_PATH)/bin
 else
+	EXECUTABLE=$(EXECUTABLE_NAME)
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Linux)
 		SFML_PATH+=$(SFML_SRC_PATH)$(SFML_LINUX_PATH)
@@ -38,7 +39,7 @@ OBJS=$(patsubst %.cpp, $(ODIR)/%.o, $(SRCS))
 
 ODIR=obj
 
-app: $(OBJS)
+$(EXECUTABLE_NAME): $(OBJS)
 	mkdir -p obj
 	mkdir -p obj/core
 	mkdir -p obj/util
