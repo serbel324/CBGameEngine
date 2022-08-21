@@ -22,7 +22,7 @@ else
 	EXECUTABLE=$(EXECUTABLE_NAME)
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Linux)
-		SFML_PATH+=$(SFML_SRC_PATH)$(SFML_LINUX_PATH)
+		SFML_PATH=$(SFML_SRC_PATH)$(SFML_LINUX_PATH)
 	endif
 endif
 
@@ -44,7 +44,7 @@ $(EXECUTABLE_NAME): $(OBJS)
 	mkdir -p obj/core
 	mkdir -p obj/util
 
-	$(CC) $(OBJS) -o app.exe $(LIB) $(LIBS)
+	$(CC) $(OBJS) -o $(EXECUTABLE) $(LIB) $(LIBS)
 	export LD_LIBRARY_PATH=SFML_LIB_PATH
 
 ifeq ($(OS),Windows_NT)
